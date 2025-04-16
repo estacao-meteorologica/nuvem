@@ -1,7 +1,7 @@
 all: stop start
 
 stop:
-	compose down
+	docker compose down
 
 start:
 	docker compose up -d
