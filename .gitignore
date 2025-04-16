@@ -1,0 +1,6 @@
+# Environment
+.env*
+secret-*
+
+# Python
+venv/
