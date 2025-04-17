@@ -45,14 +45,14 @@ services:
       - /etc/letsencrypt/live/em.sj.ifsc.edu.br/fullchain.pem:/etc/nginx/fullchain.pem:ro
       - /etc/letsencrypt/live/em.sj.ifsc.edu.br/privkey.pem:/etc/nginx/privkey.pem:ro
   mqtt2tsdb:
-    build:
-      context: ./software
-      dockerfile: Dockerfile
+    entrypoint: sh -c "cd /app && pip install -r requirements.txt && python3 main.py"
+    image: python:3-slim
     restart: always
     depends_on:
       - mqtt-broker
+      - tsdb
     volumes:
-      - ./secret-mqtt2tsdb:/app/.env:ro
+      - ./software:/app:rw
 secrets:
   tsdb-username:
     file: secret-tsdb-username
