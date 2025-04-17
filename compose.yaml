@@ -12,8 +12,8 @@ services:
       DOCKER_INFLUXDB_INIT_USERNAME_FILE: /run/secrets/tsdb-username
       DOCKER_INFLUXDB_INIT_PASSWORD_FILE: /run/secrets/tsdb-password
       DOCKER_INFLUXDB_INIT_ADMIN_TOKEN_FILE: /run/secrets/tsdb-admin-token
-      DOCKER_INFLUXDB_INIT_ORG: feira
-      DOCKER_INFLUXDB_INIT_BUCKET: feira
+      DOCKER_INFLUXDB_INIT_ORG: em
+      DOCKER_INFLUXDB_INIT_BUCKET: em
     image: influxdb:2
     restart: always
     secrets:

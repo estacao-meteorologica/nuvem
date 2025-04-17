@@ -4,3 +4,7 @@ secret-*
 
 # Python
 venv/
+
+# Dados locais
+grafana/
+tsdb/
