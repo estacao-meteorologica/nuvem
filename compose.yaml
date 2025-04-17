@@ -44,6 +44,15 @@ services:
       - ./http-proxy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
       - /etc/letsencrypt/live/em.sj.ifsc.edu.br/fullchain.pem:/etc/nginx/fullchain.pem:ro
       - /etc/letsencrypt/live/em.sj.ifsc.edu.br/privkey.pem:/etc/nginx/privkey.pem:ro
+  mqtt2tsdb:
+    build:
+      context: ./software
+      dockerfile: Dockerfile
+    restart: always
+    depends_on:
+      - mqtt-broker
+    volumes:
+      - ./secret-mqtt2tsdb:/app/.env:ro
 secrets:
   tsdb-username:
     file: secret-tsdb-username
@@ -51,3 +60,4 @@ secrets:
     file: secret-tsdb-password
   tsdb-admin-token:
     file: secret-tsdb-admin-token
+
