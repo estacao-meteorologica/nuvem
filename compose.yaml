@@ -52,7 +52,7 @@ services:
       - mqtt-broker
       - tsdb
     volumes:
-      - ./software:/app:rw
+      - ./software:/app:ro
 secrets:
   tsdb-username:
     file: secret-tsdb-username
